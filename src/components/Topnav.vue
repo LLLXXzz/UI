@@ -1,12 +1,26 @@
 <template>
   <div class="topnav">
-    <div class="logo">LOGO</div>
+    <div class="logo" @click="toogleMenu">LOGO</div>
     <ul class="menu">
       <li>菜单1</li>
       <li>菜单2</li>
     </ul>
   </div>
 </template>
+<script lang='ts'>
+import { inject, Ref } from "vue";
+
+export default {
+  setup() {
+    //Ref 类型都是大写 里面是个布尔值
+    const asideVisible = inject<Ref<boolean>>("xxx");
+    const toogleMenu = () => {
+      asideVisible.value = !asideVisible.value;
+    };
+    return { toogleMenu };
+  },
+};
+</script>
 <style lang='scss' scoped>
 .topnav {
   background: pink;
