@@ -25,7 +25,7 @@ button {
   height: $h;
   width: $h * 2;
   border: none;
-  background: grey;
+  background: #bfbfbf;
   border-radius: $h/2;
   position: relative;
 }
@@ -38,16 +38,29 @@ span {
   width: $h2;
   background: white;
   border-radius: $h2 / 2;
-  transition: left 250ms;
+  transition: all 250ms;
 }
 // 当button拥有checked属性时
 button.checked {
-  background: blue;
+  background: #1890ff;
 }
 button.checked > span {
   left: calc(100% - #{$h2} - 2px);
 }
 button:focus {
   outline: none;
+}
+//当没有checked类时
+button:active {
+  > span {
+    width: $h2 + 4px;
+  }
+}
+//当有checked类时
+button.checked:active {
+  > span {
+    width: $h2 + 4px;
+    margin-left: -4px;
+  }
 }
 </style>
