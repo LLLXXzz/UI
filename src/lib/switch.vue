@@ -10,7 +10,7 @@ export default {
     const toggle = () => {
       checked.value = !checked.value;
     };
-    return { x, toggle };
+    return { checked, toggle };
   },
 };
 </script>
