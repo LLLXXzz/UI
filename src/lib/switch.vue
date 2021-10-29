@@ -28,39 +28,39 @@ button {
   background: #bfbfbf;
   border-radius: $h/2;
   position: relative;
-}
-//白圆圈
-span {
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  height: $h2;
-  width: $h2;
-  background: white;
-  border-radius: $h2 / 2;
-  transition: all 250ms;
-}
-// 当button拥有checked属性时
-button.checked {
-  background: #1890ff;
-}
-button.checked > span {
-  left: calc(100% - #{$h2} - 2px);
-}
-button:focus {
-  outline: none;
-}
-//当没有checked类时
-button:active {
+  //白圆圈
   > span {
-    width: $h2 + 4px;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    height: $h2;
+    width: $h2;
+    background: white;
+    border-radius: $h2 / 2;
+    transition: all 250ms;
   }
-}
-//当有checked类时
-button.checked:active {
-  > span {
-    width: $h2 + 4px;
-    margin-left: -4px;
+  // 当button拥有checked属性时
+  &.checked {
+    background: #1890ff;
+  }
+  &.checked > span {
+    left: calc(100% - #{$h2} - 2px);
+  }
+  &:focus {
+    outline: none;
+  }
+  //当没有checked类时
+  &:active {
+    > span {
+      width: $h2 + 4px;
+    }
+  }
+  //当有checked类时
+  &.checked:active {
+    > span {
+      width: $h2 + 4px;
+      margin-left: -4px;
+    }
   }
 }
 </style>
