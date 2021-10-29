@@ -4,6 +4,7 @@
 
 <script lang='ts'>
 import { provide, ref } from "vue";
+import { router } from "./router";
 export default {
   name: "App",
   setup() {
@@ -11,8 +12,14 @@ export default {
     const width = document.documentElement.clientWidth;
     //根据屏幕宽度来决定初始值
     const asideVisible = ref(width <= 500 ? false : true);
-    //set 标记所有的后代都可以使用
+    //标记所有的后代都可以使用  相当于set
     provide("xxx", asideVisible);
+    router.afterEach(() => {
+      // console.log("路由跳转了");
+      if (width <= 500) {
+        asideVisible.value = false;
+      }
+    });
   },
 };
 </script>

@@ -15,6 +15,7 @@ export default {
   setup() {
     //Ref 类型都是大写 里面是个布尔值
     const asideVisible = inject<Ref<boolean>>("xxx");
+
     const toogleMenu = () => {
       asideVisible.value = !asideVisible.value;
     };
