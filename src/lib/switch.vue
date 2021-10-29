@@ -1,16 +1,19 @@
 <template>
-  <button @click="toggle" :class="{ checked: checked }"><span></span></button>
+  <button @click="toggle" :class="{ checked: value }"><span></span></button>
 </template>
 <script lang='ts'>
 import { ref } from "vue";
 export default {
-  setup() {
-    //ref相当于一个盒子 .value取里面的值
-    const checked = ref(false);
+  props: { value: Boolean },
+  setup(props, context) {
+    // const checked = ref(false);
     const toggle = () => {
-      checked.value = !checked.value;
+      // checked.value = !checked.value;
+      context.emit("input", !props.value);
+      //vue2 this.$emit()
+      //emit(事件名，事件参数)
     };
-    return { checked, toggle };
+    return { toggle };
   },
 };
 </script>
