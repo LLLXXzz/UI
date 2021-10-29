@@ -9,7 +9,7 @@ export default {
     // const checked = ref(false);
     const toggle = () => {
       // checked.value = !checked.value;
-      context.emit("input", !props.value);
+      context.emit("update:value", !props.value);
       //vue2 this.$emit()
       //emit(事件名，事件参数)
     };

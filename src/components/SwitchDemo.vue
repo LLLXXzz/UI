@@ -3,7 +3,9 @@
     <!-- value不加: 代表字符串 加上v-bind绑定则会判断数据类型-->
     <!-- $event用来接收子组件传递的新数据 -->
     <!-- @input用来接收子组件数据的事件，名字可自定义 -->
-    <Switch :value="y" @input="y = $event" />
+    <!-- <Switch :value="y" @update:value="y = $event" /> -->
+    <!-- 使用v-model实现value自动监听（双向绑定） -->
+    <Switch v-model:value="y" />
     {{ y }}
   </div>
 </template>
