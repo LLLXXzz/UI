@@ -1,4 +1,5 @@
 <template>
+  <div>Switch组件</div>
   <div>
     <!-- value不加: 代表字符串 加上v-bind绑定则会判断数据类型-->
     <!-- $event用来接收子组件传递的新数据 -->
@@ -6,7 +7,8 @@
     <!-- <Switch :value="y" @update:value="y = $event" /> -->
     <!-- 使用v-model实现value自动监听（双向绑定） -->
     <Switch v-model:value="y" />
-    {{ y }}
+
+    <p>{{ y }}</p>
   </div>
 </template>
 <script lang='ts'>

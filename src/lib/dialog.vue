@@ -1,17 +1,19 @@
 <template>
   <template v-if="visible">
     <!-- 遮罩层 -->
-    <div class="gulu-dialog-overlay"></div>
+    <div class="gulu-dialog-overlay" @click="onClickOverlay"></div>
     <div class="gulu-dialog-wrapper">
       <div class="gulu-dialog">
-        <header>标题<span class="gulu-dialog-close"></span></header>
+        <header>
+          标题<span class="gulu-dialog-close" @click="close"></span>
+        </header>
         <main>
-          <p>1</p>
-          <p>2</p>
+          <p>第一行文字</p>
+          <p>第二行文字</p>
         </main>
         <footer>
-          <Button>取消</Button>
-          <Button level="main">确认</Button>
+          <Button @click="close">取消</Button>
+          <Button level="main" @click="ok">确认</Button>
         </footer>
       </div>
     </div>
@@ -27,8 +29,35 @@ export default {
       type: Boolean,
       default: false,
     },
+    //true 点击遮罩层关闭 false点击不关闭
+    closeOnclickOverlay: {
+      type: Boolean,
+      default: true,
+    },
+    ok: {
+      type: Function,
+    },
   },
-  setup() {},
+  setup(props, context) {
+    const close = () => {
+      context.emit("update:visible", false);
+    };
+
+    const onClickOverlay = () => {
+      console.log(props.closeOnclickOverlay);
+      if (props.closeOnclickOverlay) {
+        console.log("222");
+        close();
+      }
+    };
+
+    const ok = () => {
+      if (props.ok?.() != false) {
+        close();
+      }
+    };
+    return { close, onClickOverlay, ok };
+  },
 };
 </script>
 <style lang='scss'>

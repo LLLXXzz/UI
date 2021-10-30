@@ -1,5 +1,5 @@
 <template>
-  <div>Button 示例</div>
+  <div>Button 组件</div>
   <h1>示例一</h1>
   <div>
     <Button>你好</Button>
