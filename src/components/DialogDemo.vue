@@ -3,7 +3,16 @@
     <p>Dialog组件</p>
     <h1>示例1</h1>
     <Button @click="toggle">点击</Button>
-    <Dialog v-model:visible="x" :closeOnclickOverlay="false" :ok="f1"></Dialog>
+    <Dialog v-model:visible="x" :closeOnclickOverlay="false" :ok="f1">
+      <!-- 具名插槽 -->
+      <template v-slot:title>
+        <strong>标题</strong>
+      </template>
+      <template v-slot:content>
+        <div>hi</div>
+        <div>你好</div>
+      </template>
+    </Dialog>
   </div>
 </template>
 <script>
