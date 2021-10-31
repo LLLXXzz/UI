@@ -5,10 +5,8 @@
     <div class="gulu-dialog-wrapper">
       <div class="gulu-dialog">
         <header>
-          <slot name="title"/ ><span
-            class="gulu-dialog-close"
-            @click="close"
-          ></span>
+          <slot name="title" />
+          <span class="gulu-dialog-close" @click="close"></span>
         </header>
         <main>
           <slot name="content" />
