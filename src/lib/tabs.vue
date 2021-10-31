@@ -7,8 +7,9 @@
         v-for="(t, index) in titles"
         :key="index"
         :ref="
+          //如果这个元素的 t === selected（被选中的元素）将该元素赋值给selectItems
           (el) => {
-            if (el) navItems[index] = el;
+            if (t === selected) selectItems = el;
           }
         "
         :class="{ selected: t === selected }"
@@ -40,7 +41,9 @@ export default {
   },
   setup(props, context) {
     //<HTMLDivElement[]> 这里的([])是HTML div元素数组
-    const navItems = ref<HTMLDivElement[]>([]);
+    // const navItems = ref<HTMLDivElement[]>([]);
+    //selectItemd保存被选中的元素
+    const selectItems = ref<HTMLDivElement>(null);
     const indicator = ref<HTMLDivElement>(null);
     const container = ref<HTMLDivElement>(null);
 
@@ -49,18 +52,18 @@ export default {
       //打印navItems.value的值 值就是两个div
       //   console.log(...navItems.value);
       //获取两个div
-      const divs = navItems.value;
+      //   const divs = navItems.value;
       //找到class为seleced的div filter过滤
-      const result = divs.filter((div) =>
-        div.classList.contains("selected")
-      )[0];
+      //   const result = divs.filter((div) =>
+      //     div.classList.contains("selected")
+      //   )[0];
       //获取该元素宽度
       //   const width = result.getBoundingClientRect().width ;
-      const { width } = result.getBoundingClientRect();
+      const { width } = selectItems.value.getBoundingClientRect();
       //让蓝线跟元素一样宽
       indicator.value.style.width = width + "px";
       const left1 = container.value.getBoundingClientRect().left;
-      const left2 = result.getBoundingClientRect().left;
+      const left2 = selectItems.value.getBoundingClientRect().left;
       //相减
       const left = left2 - left1;
       indicator.value.style.left = left + "px";
@@ -90,7 +93,7 @@ export default {
     const select = (title) => {
       context.emit("update:selected", title);
     };
-    return { defaults, titles, select, navItems, indicator, container };
+    return { defaults, titles, select, indicator, container, selectItems };
   },
 };
 </script>
