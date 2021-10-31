@@ -12,6 +12,7 @@ export const openDialog = (options) => {
     // createApp(dialog).mount(div)
     const close = () => {
         //卸载应用实例的根组件
+        //@ts-ignore
         app.unmount(div)
         //删除临时div
         div.remove()
