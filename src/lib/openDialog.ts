@@ -27,7 +27,7 @@ export const openDialog = (options) => {
                         close()
                     }
                 },
-                ok
+                ok,
             },
                 //title content是插槽 所以再写一个对象
                 {
