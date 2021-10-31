@@ -1,6 +1,6 @@
 <template>
   <div class="gulu-tabs">
-    <div class="gulu-tabs-nav">
+    <div class="gulu-tabs-nav" ref="container">
       <div
         @click="select(t)"
         class="gulu-tabs-nav-item"
@@ -30,7 +30,7 @@
 </template>
 <script lang='ts'>
 import Tab from "./tab.vue";
-import { onMounted, ref } from "vue";
+import { onMounted, ref, onUpdated } from "vue";
 
 export default {
   props: {
@@ -42,8 +42,10 @@ export default {
     //<HTMLDivElement[]> 这里的([])是HTML div元素数组
     const navItems = ref<HTMLDivElement[]>([]);
     const indicator = ref<HTMLDivElement>(null);
-    //挂载之后
-    onMounted(() => {
+    const container = ref<HTMLDivElement>(null);
+
+    //底部蓝线随着鼠标点击移动，并且宽度与元素相宽
+    const x = () => {
       //打印navItems.value的值 值就是两个div
       //   console.log(...navItems.value);
       //获取两个div
@@ -57,7 +59,22 @@ export default {
       const { width } = result.getBoundingClientRect();
       //让蓝线跟元素一样宽
       indicator.value.style.width = width + "px";
+      const left1 = container.value.getBoundingClientRect().left;
+      const left2 = result.getBoundingClientRect().left;
+      //相减
+      const left = left2 - left1;
+      indicator.value.style.left = left + "px";
+    };
+
+    //挂载之后 只渲染一次
+    onMounted(() => {
+      x();
     });
+    //每次更新执行(鼠标点击)
+    onUpdated(() => {
+      x();
+    });
+
     //确定子组件的类型
     const defaults = context.slots.default();
     // console.log(defaults[0].type === Tab);
@@ -73,7 +90,7 @@ export default {
     const select = (title) => {
       context.emit("update:selected", title);
     };
-    return { defaults, titles, select, navItems, indicator };
+    return { defaults, titles, select, navItems, indicator, container };
   },
 };
 </script>
@@ -105,6 +122,7 @@ $border-color: #d9d9d9;
       left: 0;
       bottom: -1px;
       width: 100px;
+      transition: all 250ms;
     }
   }
   &-content {
