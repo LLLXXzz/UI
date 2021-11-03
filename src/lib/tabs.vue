@@ -57,7 +57,6 @@ export default {
       //   const result = divs.filter((div) =>
       //     div.classList.contains("selected")
       //   )[0];
-
       //获取该元素宽度
       //   const width = result.getBoundingClientRect().width ;
       const { width } = selectItems.value.getBoundingClientRect();
@@ -71,17 +70,17 @@ export default {
     };
 
     //挂载之后 只渲染一次
-    // onMounted(() => {
-    //   x();
-    // });
-    // //每次更新执行(鼠标点击)
-    // onUpdated(() => {
-    //   x();
-    // });
-    //替代 onMounted 和onUpdated 作用一致
-    watchEffect(() => {
+    onMounted(() => {
       x();
     });
+    //每次更新执行(鼠标点击)
+    onUpdated(() => {
+      x();
+    });
+    //替代 onMounted 和onUpdated 作用一致
+    // watchEffect(() => {
+    //   x();
+    // });
 
     //确定子组件的类型
     const defaults = context.slots.default();
