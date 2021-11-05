@@ -52,11 +52,6 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-//高亮当前路由
-.router-link-active {
-  color: #1890ff;
-  text-decoration: underline;
-}
 .layout {
   display: flex;
   flex-direction: column;
@@ -87,7 +82,7 @@ export default {
 aside {
   background: lightblue;
   width: 150px;
-  padding: 16px;
+  padding: 16px 0;
   position: fixed;
   top: 0;
   left: 0;
@@ -95,10 +90,19 @@ aside {
   height: 100%;
   > h2 {
     margin-bottom: 4px;
+    padding: 0 16px;
   }
   > ol {
     > li {
-      padding: 4px 0;
+      > a {
+        display: block;
+        padding: 4px 16px;
+      }
+      //高亮当前路由
+      .router-link-active {
+        color: #1890ff;
+        background: white;
+      }
     }
   }
 }
