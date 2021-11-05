@@ -52,6 +52,11 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+//高亮当前路由
+.router-link-active {
+  color: #1890ff;
+  text-decoration: underline;
+}
 .layout {
   display: flex;
   flex-direction: column;
