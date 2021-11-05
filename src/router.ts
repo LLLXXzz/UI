@@ -6,6 +6,9 @@ import Button from './components/ButtonDemo.vue'
 import Dialog from './components/DialogDemo.vue'
 import Tab from './components/TabDemo.vue'
 import Docdemo from './components/Docdemo.vue'
+import Intro from './view/Intro.vue'
+import GetStart from './view/getStart.vue'
+import Install from './view/Install.vue'
 const history = createWebHashHistory()
 export const router = createRouter({
     history: history,
@@ -16,6 +19,9 @@ export const router = createRouter({
             path: '/doc', component: Doc,
             children: [
                 { path: '', component: Docdemo },
+                { path: 'intro', component: Intro },
+                { path: 'get-start', component: GetStart },
+                { path: 'install', component: Install },
                 { path: 'switch', component: Switch },
                 { path: 'dialog', component: Dialog },
                 { path: 'button', component: Button },
