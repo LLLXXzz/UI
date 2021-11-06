@@ -16,7 +16,7 @@
         <Button>查看代码</Button>
       </div>
       <div class="demo-code">
-        <pre>&lt;Switch v-model:value="bool" /&gt;</pre>
+        <pre>{{ SwitchCode1.__sourceCode }}</pre>
       </div>
     </div>
     <div class="demo">
@@ -28,7 +28,7 @@
         <Button>查看代码</Button>
       </div>
       <div class="demo-code">
-        <pre>&lt;Switch v-model:value="bool" disabled /&gt;</pre>
+        <pre>{{ SwitchCode2.__sourceCode }}</pre>
       </div>
     </div>
   </div>
@@ -45,7 +45,7 @@ export default {
   setup() {
     //ref相当于一个盒子 .value取里面的值
     const bool = ref(false);
-    return { bool };
+    return { bool, SwitchCode1, SwitchCode2 };
   },
 };
 </script>
