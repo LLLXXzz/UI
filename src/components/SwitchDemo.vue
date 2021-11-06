@@ -10,7 +10,7 @@
     <div class="demo">
       <h2>常规用法</h2>
       <div class="demo-component">
-        <Switch v-model:value="y" />
+        <SwitchCode1 />
       </div>
       <div class="demo-actions">
         <Button>查看代码</Button>
@@ -22,7 +22,7 @@
     <div class="demo">
       <h2>支持disabled</h2>
       <div class="demo-component">
-        <Switch v-model:value="bool" disabled />
+        <SwitchCode2 />
       </div>
       <div class="demo-actions">
         <Button>查看代码</Button>
@@ -37,13 +37,16 @@
 import { ref } from "vue";
 import Switch from "../lib/switch.vue";
 import Button from "../lib/button.vue";
+import SwitchCode1 from "./SwitchCode1.vue";
+import SwitchCode2 from "./SwitchCode2.vue";
+
 export default {
+  components: { Switch, Button, SwitchCode1, SwitchCode2 },
   setup() {
     //ref相当于一个盒子 .value取里面的值
-    const y = ref(false);
-    return { y };
+    const bool = ref(false);
+    return { bool };
   },
-  components: { Switch, Button },
 };
 </script>
 <style lang='scss' scoped>
