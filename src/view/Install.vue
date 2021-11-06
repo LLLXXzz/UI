@@ -6,6 +6,6 @@
     <p>或</p>
     <pre><code>yarn add gulu-ui</code></pre>
 
-    <p>下一节：<a href="#/doc/get-started">开始使用</a></p>
+    <p>下一节：<a href="#/doc/getStart">开始使用</a></p>
   </article>
 </template>
