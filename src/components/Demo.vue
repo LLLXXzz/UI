@@ -5,15 +5,10 @@
       <component :is="component" />
     </div>
     <div class="demo-actions">
-      <Button>查看代码</Button>
+      <Button @click="toggle">查看代码</Button>
     </div>
-    <div class="demo-code">
-      <pre
-        class="language-html"
-        v-html="
-          Prism.highlight(component.__sourceCode, Prism.languages.html, 'html')
-        "
-      />
+    <div class="demo-code" v-if="codeVisible">
+      <pre class="language-html" v-html="html" />
     </div>
   </div>
 </template>
@@ -21,14 +16,30 @@
 import Button from "../lib/button.vue";
 import Prism from "prismjs";
 import "../../node_modules/prismjs/themes/prism.css";
+import { computed, ref } from "vue";
 // import { computed } from "vue";
 export default {
   props: {
     component: Object,
   },
   components: { Button },
-  setup() {
-    return { Prism };
+
+  setup(props) {
+    //利用计算属性
+    const html = computed(() => {
+      return Prism.highlight(
+        props.component.__sourceCode,
+        Prism.languages.html,
+        "html"
+      );
+    });
+    //标志是否展示代码
+    const codeVisible = ref(false);
+    //点击按钮切换
+    const toggle = () => {
+      return (codeVisible.value = !codeVisible.value);
+    };
+    return { Prism, toggle, codeVisible, html };
   },
 };
 </script>
