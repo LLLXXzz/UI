@@ -16,7 +16,15 @@
         <Button>查看代码</Button>
       </div>
       <div class="demo-code">
-        <pre>{{ SwitchCode1.__sourceCode }}</pre>
+        <pre
+          v-html="
+            Prism.highlight(
+              SwitchCode1.__sourceCode,
+              Prism.languages.html,
+              'html'
+            )
+          "
+        />
       </div>
     </div>
     <div class="demo">
@@ -28,7 +36,15 @@
         <Button>查看代码</Button>
       </div>
       <div class="demo-code">
-        <pre>{{ SwitchCode2.__sourceCode }}</pre>
+        <pre
+          v-html="
+            Prism.highlight(
+              SwitchCode2.__sourceCode,
+              Prism.languages.html,
+              'html'
+            )
+          "
+        ></pre>
       </div>
     </div>
   </div>
@@ -39,13 +55,15 @@ import Switch from "../lib/switch.vue";
 import Button from "../lib/button.vue";
 import SwitchCode1 from "./SwitchCode1.vue";
 import SwitchCode2 from "./SwitchCode2.vue";
+import Prism from "prismjs";
+import "../../node_modules/prismjs/themes/prism.css";
 
 export default {
   components: { Switch, Button, SwitchCode1, SwitchCode2 },
   setup() {
     //ref相当于一个盒子 .value取里面的值
     const bool = ref(false);
-    return { bool, SwitchCode1, SwitchCode2 };
+    return { bool, SwitchCode1, SwitchCode2, Prism };
   },
 };
 </script>

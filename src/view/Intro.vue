@@ -12,16 +12,6 @@
       README.md。
     </p>
     下一节：<a href="#/doc/install">安装</a>
-  </article> -->
-  <!-- <article class="markdown-body" v-html="intro"></article>
+  </article>
 </template>
-//  <script>
-// import intro from "../markdown/intro.md";
-// export default {
-//   data() {
-//     return {
-//       intro,
-//     };
-//   },
-// };
-// </script>
+  <!-- <article class="markdown-body" v-html="intro"></article>
