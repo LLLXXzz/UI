@@ -7,7 +7,7 @@
     <!-- <Switch :value="y" @update:value="y = $event" /> -->
     <!-- 使用v-model实现value自动监听（双向绑定） -->
     <h1>Switch 组件示例</h1>
-    <div class="demo">
+    <!-- <div class="demo">
       <h2>常规用法</h2>
       <div class="demo-component">
         <SwitchCode1 />
@@ -26,8 +26,9 @@
           "
         />
       </div>
-    </div>
-    <div class="demo">
+    </div> -->
+    <Demo :component="SwitchCode1" />
+    <!-- <div class="demo">
       <h2>支持disabled</h2>
       <div class="demo-component">
         <SwitchCode2 />
@@ -46,7 +47,8 @@
           "
         ></pre>
       </div>
-    </div>
+    </div> -->
+    <Demo :component="SwitchCode2" />
   </div>
 </template>
 <script lang='ts'>
@@ -57,9 +59,10 @@ import SwitchCode1 from "./SwitchCode1.vue";
 import SwitchCode2 from "./SwitchCode2.vue";
 import Prism from "prismjs";
 import "../../node_modules/prismjs/themes/prism.css";
+import Demo from "./Demo.vue";
 
 export default {
-  components: { Switch, Button, SwitchCode1, SwitchCode2 },
+  components: { Switch, Button, SwitchCode1, SwitchCode2, Demo },
   setup() {
     //ref相当于一个盒子 .value取里面的值
     const bool = ref(false);
