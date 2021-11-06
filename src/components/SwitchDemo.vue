@@ -53,20 +53,14 @@
 </template>
 <script lang='ts'>
 import { ref } from "vue";
-import Switch from "../lib/switch.vue";
-import Button from "../lib/button.vue";
 import SwitchCode1 from "./SwitchCode1.vue";
 import SwitchCode2 from "./SwitchCode2.vue";
-import Prism from "prismjs";
-import "../../node_modules/prismjs/themes/prism.css";
 import Demo from "./Demo.vue";
 
 export default {
-  components: { Switch, Button, SwitchCode1, SwitchCode2, Demo },
+  components: { SwitchCode1, SwitchCode2, Demo },
   setup() {
-    //ref相当于一个盒子 .value取里面的值
-    const bool = ref(false);
-    return { bool, SwitchCode1, SwitchCode2, Prism };
+    return { SwitchCode1, SwitchCode2 };
   },
 };
 </script>

@@ -10,6 +10,7 @@ import Switch from "../lib/switch.vue";
 export default {
   components: { Switch },
   setup() {
+    //ref相当于一个盒子 .value取里面的值
     const bool = ref(false);
     return {
       bool,
