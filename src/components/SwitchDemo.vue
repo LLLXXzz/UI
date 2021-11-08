@@ -1,12 +1,11 @@
 <template>
-  <div>Switch组件</div>
+  <h1>Switch组件</h1>
   <div>
     <!-- value不加: 代表字符串 加上v-bind绑定则会判断数据类型-->
     <!-- $event用来接收子组件传递的新数据 -->
     <!-- @input用来接收子组件数据的事件，名字可自定义 -->
     <!-- <Switch :value="y" @update:value="y = $event" /> -->
     <!-- 使用v-model实现value自动监听（双向绑定） -->
-    <h1>Switch 组件示例</h1>
     <!-- <div class="demo">
       <h2>常规用法</h2>
       <div class="demo-component">

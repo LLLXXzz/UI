@@ -71,12 +71,11 @@ $color: #007974;
     display: none;
     width: 32px;
     height: 32px;
-    // background: red;
     position: absolute;
     left: 16px;
     top: 50%;
     transform: translateY(-50%);
-    background: fade-out($color: #000000, $amount: 0.9);
+    // background: fade-out($color: #000000, $amount: 0.9);
   }
   @media (max-width: 500px) {
     > .menu {
