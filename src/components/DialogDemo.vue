@@ -1,29 +1,21 @@
 <template>
+  <h1>Dialog组件</h1>
   <div>
-    <p>Dialog组件</p>
-    <h1>示例1</h1>
-    <Button @click="toggle">点击</Button>
-    <Dialog v-model:visible="x" :closeOnclickOverlay="false" :ok="f1">
-      <!-- 具名插槽 -->
-      <template v-slot:title>
-        <strong>标题</strong>
-      </template>
-      <template v-slot:content>
-        <div>hi</div>
-        <div>你好</div>
-      </template>
-    </Dialog>
-    <h1>示例二</h1>
-    <Button @click="showDialog">show</Button>
+    <Demo :component="DialogDemo1" />
+    <Demo :component="DialogDemo2" />
   </div>
 </template>
 <script>
+import Demo from "./Demo.vue";
+import DialogDemo1 from "./DialogDemo1.vue";
+import DialogDemo2 from "./DialogDemo2.vue";
+
 import Dialog from "../lib/dialog.vue";
 import Button from "../lib/button.vue";
 import { ref } from "vue";
 import { openDialog } from "../lib/openDialog";
 export default {
-  components: { Dialog, Button },
+  components: { Demo, Dialog, Button },
   setup() {
     const x = ref(false);
 
@@ -43,7 +35,7 @@ export default {
         },
       });
     };
-    return { x, toggle, f1, showDialog };
+    return { x, toggle, f1, showDialog, DialogDemo1, DialogDemo2 };
   },
 };
 </script>
