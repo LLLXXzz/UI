@@ -99,7 +99,7 @@ $color: #007974;
 .features {
   margin: 64px auto;
   padding: 0 16px;
-  border: 1px solid red;
+  // border: 1px solid red;
   @media (min-width: 800px) {
     width: 800px;
     > ul {
