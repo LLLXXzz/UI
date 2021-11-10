@@ -5,7 +5,8 @@ cd dist     &&
 git init    &&
 git add .   &&
 git commit -m "update"  &&
-git branch -M master    &&
-git remote add origin git@github.com:LLLXXzz/   guluUI-website.git  &&
-git push -f -u origin master    &&
+git branch -M main    &&
+git remote add origin git@github.com:LLLXXzz/guluUI-website.git  &&
+git push -f -u origin main  &&
 cd ..
+
