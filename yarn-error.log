@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe D:\Software\yarn\bin\yarn.js add vue-router @4.0.0-beta.13
+  C:\Program Files\nodejs\node.exe D:\Software\yarn\bin\yarn.js add globle http-server
 
 PATH: 
   D:\Software\cmder\vendor\git-for-windows\mingw64\bin;D:\Software\cmder\vendor\git-for-windows\usr\bin;C:\Users\LXZ\bin;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0;C:\windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin;C:\Program Files\Intel\WiFi\bin;C:\Program Files\Common Files\Intel\WirelessCommon;D:\MinGW\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\nodejs;D:\Software\yarn\bin;C:\Program Files\dotnet;C:\python3\Scripts;C:\python3;D:\杂七杂八\学习\python\Scripts;D:\杂七杂八\学习\python;C:\Users\LXZ\AppData\Local\Microsoft\WindowsApps;C:\Users\LXZ\AppData\Roaming\npm;C:\Users\LXZ\AppData\Local\Yarn\bin;D:\杂七杂八\Microsoft VS Code\bin
@@ -14,8 +14,8 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.npm.taobao.org/@4.0.0-beta.13: Request "https://registry.npm.taobao.org/@4.0.0-beta.13" returned a 405
-      at Request.params.callback [as _callback] (D:\Software\yarn\lib\cli.js:66106:18)
+  Error: https://registry.npm.taobao.org/globle: Not found
+      at Request.params.callback [as _callback] (D:\Software\yarn\lib\cli.js:66097:18)
       at Request.self.callback (D:\Software\yarn\lib\cli.js:140749:22)
       at Request.emit (events.js:315:20)
       at Request.<anonymous> (D:\Software\yarn\lib\cli.js:141721:10)
@@ -35,11 +35,16 @@ npm manifest:
       "build": "vite build"
     },
     "dependencies": {
-      "vue": "^3.0.0-rc.1"
+      "github-markdown-css": "^5.0.0",
+      "prismjs": "^1.25.0",
+      "vue": "^3.0.0-rc.1",
+      "vue-router": "4"
     },
     "devDependencies": {
-      "vite": "^1.0.0-rc.1",
-      "@vue/compiler-sfc": "^3.0.0-rc.1"
+      "@vue/compiler-sfc": "^3.0.0-rc.1",
+      "marked": "^4.0.0",
+      "sass": "1.26.10",
+      "vite": "^1.0.0-rc.1"
     }
   }
 
@@ -345,6 +350,11 @@ Lockfile:
       "@vue/compiler-dom" "3.2.20"
       "@vue/shared" "3.2.20"
   
+  "@vue/devtools-api@^6.0.0-beta.18":
+    version "6.0.0-beta.19"
+    resolved "https://registry.npmmirror.com/@vue/devtools-api/download/@vue/devtools-api-6.0.0-beta.19.tgz#f8e88059daa424515992426a0c7ea5cde07e99bf"
+    integrity sha1-+OiAWdqkJFFZkkJqDH6lzeB+mb8=
+  
   "@vue/reactivity@3.2.20":
     version "3.2.20"
     resolved "https://registry.npmmirror.com/@vue/reactivity/download/@vue/reactivity-3.2.20.tgz#81fe1c368e7f20bc0ec1dec1045bbee253582de8"
@@ -537,7 +547,7 @@ Lockfile:
       ansi-styles "^4.1.0"
       supports-color "^7.1.0"
   
-  chokidar@^3.4.2:
+  "chokidar@>=2.0.0 <4.0.0", chokidar@^3.4.2:
     version "3.5.2"
     resolved "https://registry.nlark.com/chokidar/download/chokidar-3.5.2.tgz#dba3976fcadb016f66fd365021d91600d01c1e75"
     integrity sha1-26OXb8rbAW9m/TZQIdkWANAcHnU=
@@ -870,6 +880,11 @@ Lockfile:
     integrity sha1-SWaheV7lrOZecGxLe+txJX1uItM=
     dependencies:
       pump "^3.0.0"
+  
+  github-markdown-css@^5.0.0:
+    version "5.0.0"
+    resolved "https://registry.npmmirror.com/github-markdown-css/download/github-markdown-css-5.0.0.tgz?cache=0&sync_timestamp=1634473314819&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fgithub-markdown-css%2Fdownload%2Fgithub-markdown-css-5.0.0.tgz#829966927643426f0a43aabee9991a3ed532280d"
+    integrity sha1-gplmknZDQm8KQ6q+6ZkaPtUyKA0=
   
   glob-parent@^5.1.2, glob-parent@~5.1.2:
     version "5.1.2"
@@ -1274,6 +1289,11 @@ Lockfile:
     dependencies:
       sourcemap-codec "^1.4.4"
   
+  marked@^4.0.0:
+    version "4.0.0"
+    resolved "https://registry.npmmirror.com/marked/download/marked-4.0.0.tgz?cache=0&sync_timestamp=1635865916085&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fmarked%2Fdownload%2Fmarked-4.0.0.tgz#fd4ff16f6b99fbe6beb729f2077ea717d0ec4edb"
+    integrity sha1-/U/xb2uZ++a+tynyB36nF9DsTts=
+  
   media-typer@0.3.0:
     version "0.3.0"
     resolved "https://registry.nlark.com/media-typer/download/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
@@ -1532,6 +1552,11 @@ Lockfile:
       picocolors "^1.0.0"
       source-map-js "^0.6.2"
   
+  prismjs@^1.25.0:
+    version "1.25.0"
+    resolved "https://registry.nlark.com/prismjs/download/prismjs-1.25.0.tgz#6f822df1bdad965734b310b315a23315cf999756"
+    integrity sha1-b4It8b2tllc0sxCzFaIzFc+Zl1Y=
+  
   pump@^3.0.0:
     version "3.0.0"
     resolved "https://registry.nlark.com/pump/download/pump-3.0.0.tgz?cache=0&sync_timestamp=1624607960506&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fpump%2Fdownload%2Fpump-3.0.0.tgz#b4a2116815bde2f4e1ea602354e8c75565107a64"
@@ -1678,6 +1703,13 @@ Lockfile:
     version "5.2.1"
     resolved "https://registry.nlark.com/safe-buffer/download/safe-buffer-5.2.1.tgz#1eaf9fa9bdb1fdd4ec75f58f9cdb4e6b7827eec6"
     integrity sha1-Hq+fqb2x/dTsdfWPnNtOa3gn7sY=
+  
+  sass@1.26.10:
+    version "1.26.10"
+    resolved "https://registry.npmmirror.com/sass/download/sass-1.26.10.tgz#851d126021cdc93decbf201d1eca2a20ee434760"
+    integrity sha1-hR0SYCHNyT3svyAdHsoqIO5DR2A=
+    dependencies:
+      chokidar ">=2.0.0 <4.0.0"
   
   selfsigned@^1.10.8:
     version "1.10.11"
@@ -1900,6 +1932,13 @@ Lockfile:
       source-map "^0.7.3"
       vue "^3.0.3"
       ws "^7.3.1"
+  
+  vue-router@4:
+    version "4.0.12"
+    resolved "https://registry.npmmirror.com/vue-router/download/vue-router-4.0.12.tgz#8dc792cddf5bb1abcc3908f9064136de7e13c460"
+    integrity sha1-jceSzd9bsavMOQj5BkE23n4TxGA=
+    dependencies:
+      "@vue/devtools-api" "^6.0.0-beta.18"
   
   vue@^3.0.0-rc.1, vue@^3.0.3:
     version "3.2.20"

@@ -44,6 +44,7 @@ export default {
     // const navItems = ref<HTMLDivElement[]>([]);
     //selectItemd保存被选中的元素
     const selectItems = ref<HTMLDivElement>(null);
+    //蓝色下划线
     const indicator = ref<HTMLDivElement>(null);
     const container = ref<HTMLDivElement>(null);
 
@@ -77,7 +78,7 @@ export default {
     onUpdated(() => {
       x();
     });
-    //替代 onMounted 和onUpdated 作用一致
+    // 替代 onMounted 和onUpdated 作用一致
     // watchEffect(() => {
     //   x();
     // });

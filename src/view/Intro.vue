@@ -14,4 +14,4 @@
     下一节：<a href="#/doc/install">安装</a>
   </article>
 </template>
-  <!-- <article class="markdown-body" v-html="intro"></article>
+
