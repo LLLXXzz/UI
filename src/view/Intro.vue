@@ -1,7 +1,7 @@
 <template>
   <article class="markdown-body">
     <h1>介绍</h1>
-    <p>GuLu UI 是一款基于 Vue 3 和 TypeScript 的 UI 组件库。</p>
+    <p>MyUI 是一款基于vite, Vue 3 和 TypeScript 的 UI 组件库。</p>
     <p>
       这款组件库是我在学习Vue3.0期间全程亲手编写的，尽量不采用第三方库，包括你现在看到的这个官网也都是我自己写的。
     </p>
