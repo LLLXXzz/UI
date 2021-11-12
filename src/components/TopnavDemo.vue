@@ -2,7 +2,7 @@
   <div class="topnav">
     <router-link to="/" class="logo">
       <svg class="icon">
-        <use xlink:href="#icon-shouye"></use>
+        <use xlink:href="#icon-tomato"></use>
       </svg>
     </router-link>
     <ul class="menu">
@@ -10,9 +10,20 @@
         <router-link to="/doc">文档</router-link>
       </li>
     </ul>
-    <svg v-if="toggleMenuButtonVisible" class="toggleAside" @click="toogleMenu">
-      <use xlink:href="#icon-caidan"></use>
-    </svg>
+    <span
+      v-if="toggleMenuButtonVisible"
+      class="toggleAside"
+      @click="toogleMenu"
+    >
+      <transition name="fade">
+        <svg v-if="asideVisible">
+          <use xlink:href="#icon-close"></use>
+        </svg>
+        <svg v-else>
+          <use xlink:href="#icon-caidan"></use>
+        </svg>
+      </transition>
+    </span>
   </div>
 </template>
 <script lang='ts'>
@@ -32,7 +43,7 @@ export default {
     const toogleMenu = () => {
       asideVisible.value = !asideVisible.value;
     };
-    return { toogleMenu };
+    return { toogleMenu, asideVisible };
   },
 };
 </script>
@@ -54,8 +65,8 @@ $color: #007974;
     max-width: 6em;
     margin-right: auto;
     > svg {
-      width: 32px;
-      height: 32px;
+      width: 48px;
+      height: 48px;
     }
   }
   > .menu {
@@ -70,12 +81,17 @@ $color: #007974;
   > .toggleAside {
     display: none;
     width: 32px;
-    height: 32px;
+    height: 32x;
     position: absolute;
     left: 16px;
     top: 50%;
     transform: translateY(-50%);
+    overflow: hidden;
     // background: fade-out($color: #000000, $amount: 0.9);
+    > svg {
+      width: 32px;
+      height: 32px;
+    }
   }
   @media (max-width: 500px) {
     > .menu {
@@ -86,6 +102,10 @@ $color: #007974;
     }
     > .toggleAside {
       display: inline-block;
+    }
+    > svg {
+      width: 32px;
+      height: 32px;
     }
   }
 }

@@ -2,11 +2,11 @@
   <div class="layout">
     <Topnav class="nav" toggleMenuButtonVisible />
     <div class="content">
-      <aside v-if="asideVisible">
+      <aside class="aside_menu" :class="{ visible: asideVisible }">
         <h2>介绍</h2>
         <ol>
           <li>
-            <router-link to="/doc/intro">简介</router-link>
+            <router-link to="/doc/intro">介绍</router-link>
           </li>
           <li>
             <router-link to="/doc/install">安装</router-link>
@@ -56,58 +56,107 @@ export default {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  overflow-x: hidden;
   > .nav {
-    flex-shrink: 0;
+    flex: 0;
   }
   > .content {
-    flex-grow: 1;
-    padding-top: 60px;
+    display: flex;
+    flex: 1;
+    padding-top: 80px;
     padding-left: 156px;
-    > main {
-      flex-grow: 1;
-      padding: 16px;
-      background: white;
+    > .aside_menu {
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      margin-top: 80px;
+      height: auto;
+      width: 260px;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      border-right: 1px solid #e8e8e8;
+      z-index: 10;
+      // background: lightblue;
+      box-shadow: 5px 0 5px rgb(51 51 51 / 10%);
+      // padding: 16px 0;
+      // padding-top: 70px;
+      padding-bottom: 32px;
+      > h2 {
+        margin-bottom: 4px;
+        line-height: 22px;
+        padding: 10px;
+        font-size: 22px;
+        font-weight: 700;
+      }
+      > ol {
+        > li {
+          position: relative;
+          width: 100%;
+          font-size: 16px;
+          > a {
+            display: block;
+            padding: 12px 20px;
+            cursor: pointer;
+            color: #333;
+            &:hover {
+              background: #e5f2fa;
+              border-bottom: none;
+            }
+          }
+          //高亮当前路由
+          .router-link-active {
+            background-color: #e5f2fa;
+            border-right: none;
+            &:after {
+              content: "";
+              position: absolute;
+              display: block;
+              top: 0;
+              right: 0;
+              width: 3px;
+              height: 100%;
+              animation: bdrolate 0.8s;
+              background-color: #6b9ab8;
+            }
+          }
+        }
+      }
     }
-    @media (max-width: 500px) {
+    main {
+      flex: 1;
+      overflow: auto;
+      padding: 16px 180px;
+    }
+  }
+  @keyframes bdrolate {
+    0% {
+      transform: rotateX(90deg);
+    }
+    100% {
+      transform: rotateX(0deg);
+    }
+  }
+}
+@media (max-width: 500px) {
+  .layout {
+    > .content {
       padding-left: 0;
-    }
-  }
-}
-.content {
-  display: flex;
-  > aside {
-    flex-shrink: 0;
-  }
-}
-aside {
-  background: lightblue;
-  width: 150px;
-  padding: 16px 0;
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding-top: 70px;
-  height: 100%;
-  z-index: 1;
-  > h2 {
-    margin-bottom: 4px;
-    padding: 0 16px;
-  }
-  > ol {
-    > li {
-      > a {
-        display: block;
-        padding: 4px 16px;
+      .aside_menu {
+        width: 180px;
+        background-color: #fff;
+        transition: all 0.25s ease;
+        transform: translateX(-200px);
+        &.visible {
+          transform: translateX(0px);
+        }
       }
-      //高亮当前路由
-      .router-link-active {
-        color: #1890ff;
-        background: white;
+      main {
+        overflow: auto;
+        padding: 20px 8px;
+        margin: 0 auto;
       }
     }
   }
-}
-main {
-  overflow: auto;
 }
 </style>
