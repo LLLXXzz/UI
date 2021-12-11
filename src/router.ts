@@ -8,6 +8,7 @@ import Tab from './components/TabDemo.vue'
 import Intro from './view/Intro.vue'
 import GetStart from './view/getStart.vue'
 import Install from './view/Install.vue'
+import Input from './components/Input.vue'
 const history = createWebHashHistory()
 export const router = createRouter({
     history: history,
@@ -24,7 +25,9 @@ export const router = createRouter({
                 { path: 'switch', component: Switch },
                 { path: 'dialog', component: Dialog },
                 { path: 'button', component: Button },
-                { path: 'tab', component: Tab }
+                { path: 'tab', component: Tab },
+                { path: 'input', component: Input },
+
             ]
         }
     ]

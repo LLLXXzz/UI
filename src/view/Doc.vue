@@ -29,6 +29,9 @@
           <li>
             <router-link to="/doc/tab">Tab组件</router-link>
           </li>
+          <li>
+            <router-link to="/doc/input">Input组件</router-link>
+          </li>
         </ol>
       </aside>
       <main>
